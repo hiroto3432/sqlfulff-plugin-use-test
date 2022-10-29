@@ -1,4 +1,4 @@
--- has not-null constraint and defalut value is not set (pass)
+-- has not-null constraint and defalut value is not set (fail)
 alter table tbl1
 add column col1 TEXT not null;
 
@@ -11,11 +11,11 @@ alter table tbl3
 add column col1 TEXT default ''
 not null;
 
--- has not-null constraint and defalut value is null (pass)
+-- has not-null constraint and defalut value is null (fail)
 alter table tbl4
 add column col1 TEXT not null default null;
 
--- adding multiple Columns (pass)
+-- adding multiple Columns (fail:L20,L22)
 alter table tbl5
 add column col1 TEXT not null,
 add column col2 TEXT default '',
